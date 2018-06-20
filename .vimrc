@@ -12,8 +12,9 @@ call plug#begin('~/.vim/plugged')
  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
    autocmd VimEnter * PlugInstall | q
    endif
-
-" My plugins
+   " My plugins
+   " NOTE: Make sure to use single quotes!
+   Plug 'easymotion/vim-easymotion'
    Plug 'vim-syntastic/syntastic'
    Plug 'ctrlpvim/ctrlp.vim'
 
@@ -33,6 +34,7 @@ let g:syntastic_check_on_wq = 0
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 
 " ======================
 " VIM Default Options
@@ -41,6 +43,7 @@ filetype on
 syntax on
 colorscheme slate
 set number " line numbers 
+set showcmd " show partial commands as they are being typed
 let mapleader=" "
 
 " Tabs
@@ -74,6 +77,15 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Can press jk in insert mode to escape out
 inoremap jk <esc>
+
+" create new vsplit, and switch to it.
+noremap <leader>v <C-w>v
+
+" bindings for easy split nav
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
