@@ -46,17 +46,17 @@ let mapleader=" "
 set tabstop=2
 set shiftwidth=2
 set expandtab " use spaces instead of tabs.
-set smarttab " let's tab key insert 'tab stops', and bksp deletes tabs.
+set smarttab " lets tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
 
 " Search options 
-set ignorecase " case insensitive search
-set smartcase " If there are uppercase letters, become case-sensitive.
-set showmatch " live match highlighting
-set incsearch " incremental search
-set hlsearch " highlight matches
+"set ignorecase " case insensitive search
+"set smartcase " If there are uppercase letters, become case-sensitive.
+"set showmatch " live match highlighting
+"set incsearch " incremental search
+"set hlsearch " highlight matches
 
 " No need for this since we have Git
 set nobackup
@@ -67,15 +67,25 @@ set noswapfile
 " CUSTOM MAPPINGS
 " =================
 
-" Clear match highlighting
+" EasyMotion Plugin
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Use easy motion for searching, which shows matches more visibly
+map  / <Plug>(easymotion-sn)
+" Clear match highlighting after doing a search
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+
+" Use <space>+f and type two characters to jump anywhere on screen
+nmap <Leader>f <Plug>(easymotion-overwin-f2)
+"
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+"
+
+
 
 
 " Can press jk in insert mode to escape out
 inoremap jk <esc>
-
-" create new vsplit, and switch to it.
-noremap <leader>v <C-w>v
 
 " bindings for easy split nav
 nnoremap <C-h> <C-w>h
