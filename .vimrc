@@ -14,11 +14,14 @@ call plug#begin('~/.vim/plugged')
    endif
 " My plugins
 " NOTE: Make sure to use single quotes!
+   Plug 'Valloric/YouCompleteMe'
    Plug 'easymotion/vim-easymotion'
    Plug 'vim-syntastic/syntastic'
    Plug 'sheerun/vim-polyglot'
-   Plug 'junegunn/fzf'
-   Plug 'junegunn/fzf.vim'
+   Plug 'ctrlpvim/ctrlp.vim'
+   Plug 'Quramy/tsuquyomi'
+   Plug 'christoomey/vim-tmux-navigator'
+   Plug 'dbeniamine/cheat.sh-vim'
 
 call plug#end()
 
@@ -31,6 +34,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" CtrlP Options
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
+
 
 " ======================
 " VIM Default Options
