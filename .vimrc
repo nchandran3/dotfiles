@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
    Plug 'Quramy/tsuquyomi'
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
+   Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -47,6 +48,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 " ======================
 filetype on
 syntax on
+set encoding=utf-8
 colorscheme slate
 set number " line numbers 
 set showcmd " show partial commands as they are being typed
@@ -60,6 +62,13 @@ set smarttab " lets tab key insert 'tab stops', and bksp deletes tabs.
 set shiftround " tab / shifting moves to closest tabstop.
 set autoindent " Match indents on new lines.
 set smartindent " Intellegently dedent / indent new lines based on rules.
+
+"Allow backspacing over autoindent, line breaks and
+""start of insert action
+set backspace=indent,eol,start
+
+"Fast scrolling for long lines that cause redraw and buffer issues
+set ttyfast
 
 " Search options 
 "set ignorecase " case insensitive search
