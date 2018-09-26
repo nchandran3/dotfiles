@@ -1,9 +1,9 @@
 set nocompatible
 
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  silent !curl --insecure -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -19,10 +19,11 @@ call plug#begin('~/.vim/plugged')
    Plug 'vim-syntastic/syntastic'
    Plug 'sheerun/vim-polyglot'
    Plug 'ctrlpvim/ctrlp.vim'
-   Plug 'Quramy/tsuquyomi'
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
    Plug 'tpope/vim-fugitive'
+   Plug 'vim-airline/vim-airline'
+   Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -42,6 +43,20 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 
+" Vim Airline Options
+let g:airline_theme = 'minimalist'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" EasyMotion Plugin
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Use easy motion for searching, which shows matches more visibly
+map  / <Plug>(easymotion-sn)
+" Clear match highlighting after doing a search
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+" Use <space>+f and type two characters to jump anywhere on screen
+nmap <Leader>f <Plug>(easymotion-overwin-f2)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
 
 " ======================
 " VIM Default Options
@@ -85,23 +100,6 @@ set noswapfile
 " =================
 " CUSTOM MAPPINGS
 " =================
-
-" EasyMotion Plugin
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-" Use easy motion for searching, which shows matches more visibly
-map  / <Plug>(easymotion-sn)
-" Clear match highlighting after doing a search
-noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-
-" Use <space>+f and type two characters to jump anywhere on screen
-nmap <Leader>f <Plug>(easymotion-overwin-f2)
-"
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-"
-
-
-
 
 " Can press jk in insert mode to escape out
 inoremap jk <esc>
