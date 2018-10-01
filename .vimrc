@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
    endif
 " My plugins
 " NOTE: Make sure to use single quotes!
+   Plug 'scrooloose/nerdtree' 
+
    Plug 'Valloric/YouCompleteMe'
    Plug 'sheerun/vim-polyglot'
    Plug 'w0rp/ale'
@@ -25,11 +27,16 @@ call plug#begin('~/.vim/plugged')
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
    Plug 'tpope/vim-fugitive'
+   
+   Plug 'editorconfig/editorconfig-vim'
 
    Plug 'vim-airline/vim-airline'
    Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
+
+" NERDTree Options
+map <C-o> :NERDTreeToggle<CR>
 
 " CtrlP Options
 let g:ctrlp_map = '<c-p>'
