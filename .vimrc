@@ -15,27 +15,21 @@ call plug#begin('~/.vim/plugged')
 " My plugins
 " NOTE: Make sure to use single quotes!
    Plug 'Valloric/YouCompleteMe'
-   Plug 'easymotion/vim-easymotion'
-   Plug 'vim-syntastic/syntastic'
    Plug 'sheerun/vim-polyglot'
+   Plug 'w0rp/ale'
+
+   Plug 'Quramy/tsuquyomi'
+
+   Plug 'easymotion/vim-easymotion'
    Plug 'ctrlpvim/ctrlp.vim'
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
    Plug 'tpope/vim-fugitive'
+
    Plug 'vim-airline/vim-airline'
    Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
-
-
-" Syntastic Plugin Options
-set statusline+=%#warningmsg#
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " CtrlP Options
 let g:ctrlp_map = '<c-p>'
@@ -44,8 +38,11 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 
 " Vim Airline Options
-let g:airline_theme = 'minimalist'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+set term=screen-256color
+set t_ut=
+let g:airline_theme='minimalist'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
 
 " EasyMotion Plugin
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
