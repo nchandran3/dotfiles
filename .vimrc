@@ -35,6 +35,13 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
+" ALE Options
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 0
+let g:ale_lint_delay = 1000
+
+
 " NERDTree Options
 map <C-o> :NERDTreeToggle<CR>
 
@@ -62,6 +69,10 @@ nmap <Leader>f <Plug>(easymotion-overwin-f2)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
+" Tsuquyomi Options
+let g:tsuquyomi_definition_split = 3 " open definitions in new tab
+
+
 " ======================
 " VIM Default Options
 " ======================
@@ -70,8 +81,14 @@ syntax on
 set encoding=utf-8
 colorscheme slate
 set number " line numbers 
+set linebreak " don't wrap words in the middle
 set showcmd " show partial commands as they are being typed
 let mapleader=" "
+
+" Change vim cursor on insert, replace, normal mode
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[1 q"
 
 " Tabs
 set tabstop=2
