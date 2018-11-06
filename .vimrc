@@ -27,6 +27,8 @@ call plug#begin('~/.vim/plugged')
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
    Plug 'tpope/vim-fugitive'
+
+   Plug 'tpope/vim-abolish'
    
    Plug 'editorconfig/editorconfig-vim'
 
@@ -62,6 +64,8 @@ let g:airline_powerline_fonts = 1
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Use easy motion for searching, which shows matches more visibly
 map  / <Plug>(easymotion-sn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 " Clear match highlighting after doing a search
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
 " Use <space>+f and type two characters to jump anywhere on screen
