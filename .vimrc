@@ -47,6 +47,7 @@ let g:ale_lint_delay = 1000
 
 " NERDTree Options
 map <C-o> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
 
 " CtrlP Options
 let g:ctrlp_map = '<c-p>'
