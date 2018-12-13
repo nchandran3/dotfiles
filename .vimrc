@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
 
    Plug 'easymotion/vim-easymotion'
    Plug 'ctrlpvim/ctrlp.vim'
+   Plug 'mileszs/ack.vim'
    Plug 'christoomey/vim-tmux-navigator'
    Plug 'dbeniamine/cheat.sh-vim'
    Plug 'tpope/vim-fugitive'
