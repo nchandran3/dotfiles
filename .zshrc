@@ -1,26 +1,23 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cargo/bin
+
+. ~/start-script.sh
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+  export ZSH="$HOME/.oh-my-zsh"
 
-# !!! Bloomberg-specific zsh workaround !!!
-# Bloomberg zsh installation has group and other writability for folders within the installation
-# Putting this here for now since they probably did it for a reason and won't change it
-ZSH_DISABLE_COMPFIX="true"
+# For using Docker with WSSL
+  export DOCKER_HOST=localhost:2375
 
 # Fixes weird duplicate command issues when using a remote shell (PUTTY)
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
 
-# Optimizations for tab completion
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+# X11 Server Settings For WSSL
+  export DISPLAY=localhost:0.0
 
-__git_files () {
-  _wanted files expl 'local files' _files
-}
+# Fixes weird ls colorscheme 
+export LS_COLORS='ow=01;36;40'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -116,4 +113,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias tmux="tmux -u"
