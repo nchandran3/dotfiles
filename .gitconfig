@@ -1,0 +1,41 @@
+[user]
+	name = Naveen Chandran
+	email = nchandran5@bloomberg.net
+
+[http "https://github.com"]
+
+[url "https://github.com/"]
+	insteadOf = github.com:
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[url "https://github.com/"]
+	insteadOf = ssh://git@github.com/
+
+
+[alias]
+	pum = pull upstream master
+	pumr = pull upstream master --rebase
+	cane = commit --amend --no-edit
+	co = checkout
+	co = checkout.cane
+	co = checkout.pushf
+	co = checkout
+	pushf = push --force
+	s = status
+	b = branch
+  untrack = update-index --skip-worktree
+  retrack = update-index --no-skip-worktree
+	suir = submodule update --init --recursive
+	subsync = submodule sync
+
+[core]
+	autocrlf = input
+	excludesfile = /home/naveen/.gitignore_global
+	editor = vim
+[credential]
+	helper = store
+[rebase]
+	autosquash = true
+[pager]
+	branch = false
+	stash = false

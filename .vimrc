@@ -57,6 +57,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|DS_Store\|git'
 
 " Vim Airline Options
 set term=screen-256color
+set term=xterm
 set t_ut=
 let g:airline_theme='minimalist'
 let g:airline#extensions#tabline#formatter = 'unique_tail'

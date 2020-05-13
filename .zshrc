@@ -1,13 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cargo/bin
-
-. ~/start-script.sh
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH="$HOME/.oh-my-zsh"
 
-# For using Docker with WSSL
-  export DOCKER_HOST=localhost:2375
+# For using Docker with WSL. Not necessary for WSL2 apparently?
+#  export DOCKER_HOST=tcp://localhost:2375
 
 # Fixes weird duplicate command issues when using a remote shell (PUTTY)
   export LANG=en_US.UTF-8
@@ -16,7 +14,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/
 # X11 Server Settings For WSSL
   export DISPLAY=localhost:0.0
 
-# Fixes weird ls colorscheme 
+# Fixes weird ls colorscheme
 export LS_COLORS='ow=01;36;40'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -76,8 +74,10 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+#
 plugins=(
   git
+  zsh-nvm
   colored-man-pages
   zsh-syntax-highlighting
 )
@@ -113,3 +113,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias poetry=~/.poetry/bin/poetry
+alias bbssh="ssh -t -X -p22 v5devgateway.bdns.bloomberg.com inline"
+alias amidocker="grep -q 'lxc\|docker' /proc/1/cgroup && echo true || echo false"
+
+. ~/start-script.sh
